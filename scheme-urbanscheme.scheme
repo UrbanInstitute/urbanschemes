@@ -1,7 +1,12 @@
-*                                    s2color.scheme
+*                                    urbanscheme.scheme
 
-* s2 scheme family with a naturally white background (white plotregions and
-* lightly colored background) and color foreground (lines, symbols, text, etc).
+* custom scheme to produce plots according to urban style guide
+* built upon s2color.scheme
+
+* notable features:
+*	x
+*	y
+*	z
 
 *  For p[#][stub] scheme references the corresponding style is resolved by
 *  searching the scheme ids with the following preference ordering:
@@ -20,10 +25,10 @@
 *  graphs, plots, or other classes and their parsers.  Their contents are
 *  specific to the use and may only be understood by the caller.
 
-*!  version 1.4.2   10sep2019
+*!  version 0.1.0   29dec2022
 
 sequence 1210
-label "s2 color"
+label "urban style scheme"
 
 system   naturally_white  1
 
@@ -35,8 +40,10 @@ graphsize y           4
 
 numstyle                  1
 numstyle grid_outer_tol   0.23
-numstyle legend_rows      0
-numstyle legend_cols      2
+** urban style - legend rows
+numstyle legend_rows      1
+** urban style - legend columns
+numstyle legend_cols      0
 numstyle zyx2rows         0
 numstyle zyx2cols         1
 
@@ -127,18 +134,24 @@ special fpcibind "brackets"
 
 gsize                 medium
 gsize gap             tiny
-gsize text            medium
+** urban style - text size
+gsize text            2.13
 gsize body            medsmall
 gsize small_body      small
 gsize heading         large
-gsize subheading      medium
-gsize axis_title      medsmall
+** urban style - y axis title size
+gsize subheading      2.13
+** urban style - x axis title size
+gsize axis_title      2.13
 gsize matrix_label    medlarge
-gsize label           medsmall     
+** urban style - label size
+gsize label           2.13     
 gsize small_label     small     
 gsize matrix_marklbl  small     
-gsize key_label       medsmall     
-gsize note            small
+** urban style - legend key label size
+gsize key_label       2.13
+** urban style - note size     
+gsize note            2.13
 gsize star            medsmall
 gsize text_option     medsmall     
 gsize dot_rectangle   third_tiny
@@ -149,7 +162,8 @@ gsize minortick       half_tiny
 * gsize minortick       .55
 gsize tickgap         half_tiny
 gsize notickgap       tiny
-gsize tick_label      medsmall
+** urban style - legend rows
+gsize tick_label      2.13
 gsize tick_biglabel   medium
 gsize minortick_label vsmall
 gsize filled_text     medsmall
@@ -159,16 +173,20 @@ gsize title_gap       vsmall
 gsize key_gap         vsmall
 gsize key_linespace   vsmall
 gsize star_gap        minuscule
-gsize legend_colgap   medium
+** urban style - legend gaps
+gsize legend_colgap   small
 gsize label_gap       half_tiny
 gsize matrix_mlblgap  half_tiny
 gsize barlabel_gap    tiny
 
 gsize legend_row_gap    tiny
-gsize legend_col_gap    large
+** urban style - legend gaps
+gsize legend_col_gap    small
 gsize legend_key_gap    vsmall
-gsize legend_key_xsize  13
-gsize legend_key_ysize  medsmall
+** urban style - legend sym size
+gsize legend_key_xsize  2.13
+** urban style - legend sym size
+gsize legend_key_ysize  1
 
 gsize zyx2legend_key_gap    tiny
 gsize zyx2legend_key_xsize  vhuge
@@ -295,7 +313,8 @@ numticks_g fp_tminor          0
 
 
 color             black
-color background  ltbluishgray
+** urban style - white background
+color background  white
 color foreground  black
 
 color symbol         black
@@ -305,7 +324,8 @@ color text             black
 color body             black
 color hrule            black
 color small_body       black
-color heading          dknavy
+** urban style - black text
+color heading          black
 color subheading       black
 color axis_title       black
 color matrix_label     black
@@ -317,25 +337,32 @@ color matrix_marklbl   black
 color sts_risk_label   black
 color sts_risk_title   black
 
-color box              bluishgray
-color textbox          bluishgray
-color mat_label_box    bluishgray
+** urban style - white box
+color box              white
+** urban style - white box
+color textbox          white
+** urban style - white box
+color mat_label_box    white
 
 color text_option      black
 color text_option_line black
-color text_option_fill bluishgray
+** urban style - black text
+color text_option_fill black
 
 color filled_text        black
-color filled             bluishgray
-color bylabel_outline    bluishgray
+** urban style - black text
+color filled             black
+** urban style - black text
+color bylabel_outline    black
 
 color reverse_big        navy
 color reverse_big_line   navy
 color reverse_big_text   white
 
-color grid         ltbluishgray
-color major_grid   ltbluishgray
-color minor_grid   gs5
+** urban style - grid colors
+color grid         "217 217 217"
+color major_grid   "217 217 217"
+color minor_grid   "217 217 217"
 
 color axisline     black
 color tick         black
@@ -418,25 +445,27 @@ color sunflowerlf    chocolate
 color sunflowerdb    orange
 color sunflowerdf    black
 
+** urban style - urban colors
 color p       gs6
-color p1      navy
-color p2      maroon
-color p3      forest_green
-color p4      dkorange
-color p5      teal
-color p6      cranberry
-color p7      lavender
-color p8      khaki
-color p9      sienna
-color p10     emidblue
-color p11     emerald
-color p12     brown
-color p13     erose
-color p14     gold
-color p15     bluishgray
+color p1      "22 150 210"
+color p2      "253 191 17"
+color p3      "0 0 0"
+color p4      "236 0 139"
+color p5      "210 210 210"
+color p6      "92 88 89"
+color p7      "85 183 72"
+color p8      "207 232 243"
+color p9      "162 212 236"
+color p10     "115 191 226"
+color p11     "70 171 219"
+color p12     "22 150 210"
+color p13     "18 113 158"
+color p14     "10 76 106"
+color p15     "6 38 53"
 
-color pboxlabelfill  bluishgray
-color plabelfill     bluishgray
+** urban style - urban colors
+color pboxlabelfill  white
+color plabelfill     white
 
 color pmarkback      white
 color pmarkbkfill    white
@@ -550,7 +579,8 @@ linepattern ci          solid
 linepattern ci_area     solid
 linepattern histogram   solid
 linepattern dendrogram  solid
-linepattern grid        solid
+** urban style - grid line
+linepattern grid        dot
 linepattern major_grid  solid
 linepattern minor_grid  dot
 linepattern axisline    solid
@@ -1829,13 +1859,14 @@ tickstyle sts_risktable   sts_risktable
 tickstyle fp_major        fp_major 
 
 
-ticksetstyle                       major_horiz_default
-ticksetstyle major_horiz_default   major_horiz_default
-ticksetstyle major_vert_default    major_vert_default
-ticksetstyle minor_horiz_default   minor_horiz_default
-ticksetstyle minor_vert_default    minor_vert_default
-ticksetstyle major_horiz_withgrid  major_horiz_default
-ticksetstyle major_vert_withgrid   major_vert_default
+** urban style - no ticks
+ticksetstyle                       major_horiz_notick
+ticksetstyle major_horiz_default   major_horiz_notick
+ticksetstyle major_vert_default    major_vert_notick
+ticksetstyle minor_horiz_default   minor_horiz_notick
+ticksetstyle minor_vert_default    minor_vert_notick
+ticksetstyle major_horiz_withgrid  major_horiz_notick
+ticksetstyle major_vert_withgrid   major_vert_notick
 ticksetstyle major_horiz_nolabel   major_horiz_nolabel
 ticksetstyle major_vert_nolabel    major_vert_nolabel
 ticksetstyle minor_horiz_nolabel   minor_horiz_nolabel
@@ -2510,4 +2541,4 @@ hrulestyle               default
 hrulestyle default       default
 hrulestyle fp            fp
 
-* end: s2color.scheme
+* end: urbanscheme.scheme
