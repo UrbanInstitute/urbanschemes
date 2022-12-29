@@ -27,6 +27,7 @@ Where `[FILE TYPE]` may be `emf`, `png`, etc.
 
 ### Example: Line plot
 ```
+webuse uslifeexp, clear
 placeholder for code
 ```
 ![Sample line plot](sample-plots/line-plot.png)
