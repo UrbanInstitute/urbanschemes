@@ -18,16 +18,18 @@ graph set window fontface "Lato"
 ```
 Instead of globally setting the scheme, you may alternatively include `scheme(urbanscheme)` within a plot code chunk.
 
-Explore plots as `.emf` files for best quality. After generating a plot, include the following line:
+Sample plots in this repo are included as `.png` files. If using Windows, export plots as `.emf` files for best quality. 
+After generating a plot, include the following line:
 ```
-graph export "[PATH]\[PLOT NAME].emf", as(emf) replace
+graph export "[PATH]\[PLOT NAME].[FILE TYPE]", replace
 ```
+Where `[FILE TYPE]` may be `emf`, `png`, etc.
 
 ### Example: Line plot
 ```
 placeholder for code
 ```
-![Sample line plot](sample-plots/line-plot.emf)
+![Sample line plot](sample-plots/line-plot.png)
 
 ## Contact
 Contact Jen Andre for feedback or questions.
