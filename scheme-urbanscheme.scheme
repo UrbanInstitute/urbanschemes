@@ -4,9 +4,11 @@
 * built upon s2color.scheme
 
 * notable features:
-*	x
-*	y
-*	z
+*	standard urban colors
+*	y-axis horizontal on top of plot
+*	scaled font sizes for legend and axes labels
+*	places legend above plot
+*	remove box lines, grid lines
 
 *  For p[#][stub] scheme references the corresponding style is resolved by
 *  searching the scheme ids with the following preference ordering:
@@ -428,8 +430,10 @@ color plotregion         white
 color plotregion_line    white
 color matrix_plotregion  white
 color matplotregion_line black
-color legend             white
-color legend_line        black
+** urban style - no legend color
+color legend             none
+** urban style - no legend line
+color legend_line        none
 color clegend            white
 color clegend_outer      none
 color clegend_inner      none
@@ -581,7 +585,7 @@ linepattern histogram   solid
 linepattern dendrogram  solid
 ** urban style - grid line
 linepattern grid        dot
-linepattern major_grid  solid
+linepattern major_grid  dot
 linepattern minor_grid  dot
 linepattern axisline    solid
 linepattern tick        solid
@@ -1236,7 +1240,8 @@ linewidth dot_line     medthick
 linewidth dot_area     medium
 linewidth dotmark      thin
 linewidth plotregion   thin
-linewidth legend       thin
+** urban style - no legend line
+linewidth legend       none
 linewidth clegend      thin
 linewidth pie          medium
 linewidth reverse_big  thin
@@ -1914,10 +1919,12 @@ compass3dir p         east
 
 clockdir                    12
 clockdir title_position     12
-clockdir subtitle_position  12
+** urban style - y axis label on top
+clockdir subtitle_position  11
 clockdir caption_position    7
 clockdir note_position       7
-clockdir legend_position     6
+** urban style - legend above plot
+clockdir legend_position     12
 clockdir zyx2legend_position 3
 clockdir by_legend_position  6
 clockdir ilabel              3
@@ -1942,7 +1949,8 @@ gridringstyle title_ring      7
 gridringstyle subtitle_ring   6
 gridringstyle caption_ring    5
 gridringstyle note_ring       4
-gridringstyle legend_ring     3
+** urban style - legend above plot
+gridringstyle legend_ring     0
 gridringstyle zyx2legend_ring 4
 gridringstyle clegend_ring    3
 gridringstyle by_legend_ring  3
@@ -2094,7 +2102,8 @@ yesno draw_major_hgrid       no
 yesno draw_minor_hgrid       no
 yesno draw_majornl_hgrid     no
 yesno draw_minornl_hgrid     no
-yesno draw_major_vgrid       yes
+** urban style
+yesno draw_major_vgrid       no
 yesno draw_minor_vgrid       no
 yesno draw_majornl_vgrid     no
 yesno draw_minornl_vgrid     no
@@ -2198,7 +2207,8 @@ yesno legend_force_draw      no
 yesno legend_force_nodraw    no
 
 yesno title_span             no
-yesno subtitle_span          no
+** urban style - span subtitle
+yesno subtitle_span          yes
 yesno caption_span           no
 yesno note_span              no
 yesno legend_span            no
