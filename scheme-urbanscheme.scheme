@@ -1,14 +1,7 @@
-*                                    urbanscheme.scheme
+*                                    urbanplots.scheme
 
 * custom scheme to produce plots according to urban style guide
 * built upon s2color.scheme
-
-* notable features:
-*	standard urban colors
-*	y-axis horizontal on top of plot
-*	scaled font sizes for legend and axes labels
-*	places legend above plot
-*	remove box lines, grid lines
 
 *  For p[#][stub] scheme references the corresponding style is resolved by
 *  searching the scheme ids with the following preference ordering:
@@ -27,7 +20,7 @@
 *  graphs, plots, or other classes and their parsers.  Their contents are
 *  specific to the use and may only be understood by the caller.
 
-*!  version 0.1.0   29dec2022
+*!  version 0.1.0   01222023
 
 sequence 1210
 label "urban style scheme"
@@ -35,9 +28,10 @@ label "urban style scheme"
 system   naturally_white  1
 
 
+** urban style - size
 graphsize             5
-graphsize x           5.5
-graphsize y           4
+graphsize x           6.5
+graphsize y           4.3
 
 
 numstyle                  1
@@ -137,25 +131,25 @@ special fpcibind "brackets"
 gsize                 medium
 gsize gap             tiny
 ** urban style - text size
-gsize text            2.13
+gsize text            2.75
 gsize body            medsmall
 gsize small_body      small
 gsize heading         large
 ** urban style - y axis title size
-gsize subheading      2.13
+gsize subheading      2.75
 ** urban style - x axis title size
-gsize axis_title      2.13
+gsize axis_title      2.75
 gsize matrix_label    medlarge
 ** urban style - label size
-gsize label           2.13     
+gsize label           2.75     
 gsize small_label     small     
 gsize matrix_marklbl  small     
 ** urban style - legend key label size
-gsize key_label       2.13
+gsize key_label       2.75
 ** urban style - note size     
-gsize note            2.13
+gsize note            2.75
 gsize star            medsmall
-gsize text_option     medsmall     
+gsize text_option     2.75    
 gsize dot_rectangle   third_tiny
 gsize axis_space      half_tiny
 gsize axis_title_gap  minuscule
@@ -165,7 +159,7 @@ gsize minortick       half_tiny
 gsize tickgap         half_tiny
 gsize notickgap       tiny
 ** urban style - legend rows
-gsize tick_label      2.13
+gsize tick_label      2.75
 gsize tick_biglabel   medium
 gsize minortick_label vsmall
 gsize filled_text     medsmall
@@ -186,7 +180,7 @@ gsize legend_row_gap    tiny
 gsize legend_col_gap    small
 gsize legend_key_gap    vsmall
 ** urban style - legend sym size
-gsize legend_key_xsize  2.13
+gsize legend_key_xsize  2.75
 ** urban style - legend sym size
 gsize legend_key_ysize  1
 
@@ -1819,7 +1813,7 @@ tb_orientstyle            horizontal
 
 axisstyle                    horizontal_default
 axisstyle horizontal_default horizontal_default
-axisstyle vertical_default   vertical_default
+axisstyle vertical_default   vertical_withgrid
 axisstyle horizontal_nogrid  horizontal_nogrid
 axisstyle vertical_nogrid    vertical_nogrid
 axisstyle bar_super          horizontal_nolinetick
@@ -1865,13 +1859,13 @@ tickstyle fp_major        fp_major
 
 
 ** urban style - no ticks
-ticksetstyle                       major_horiz_notick
-ticksetstyle major_horiz_default   major_horiz_notick
-ticksetstyle major_vert_default    major_vert_notick
-ticksetstyle minor_horiz_default   minor_horiz_notick
-ticksetstyle minor_vert_default    minor_vert_notick
-ticksetstyle major_horiz_withgrid  major_horiz_notick
-ticksetstyle major_vert_withgrid   major_vert_notick
+ticksetstyle                       major_horiz_default
+ticksetstyle major_horiz_default   major_horiz_default
+ticksetstyle major_vert_default    major_vert_default
+ticksetstyle minor_horiz_default   minor_horiz_default
+ticksetstyle minor_vert_default    minor_vert_default
+ticksetstyle major_horiz_withgrid  major_horiz_default
+ticksetstyle major_vert_withgrid   major_vert_default
 ticksetstyle major_horiz_nolabel   major_horiz_nolabel
 ticksetstyle major_vert_nolabel    major_vert_nolabel
 ticksetstyle minor_horiz_nolabel   minor_horiz_nolabel
@@ -1964,7 +1958,8 @@ gridringstyle clegend_title_ring    7
 
 anglestyle                 horizontal
 anglestyle horizontal_tick horizontal
-anglestyle vertical_tick   vertical
+** urban style - horizontal tick labels
+anglestyle vertical_tick   horizontal
 anglestyle clegend         horizontal
 anglestyle symbol          zero
 anglestyle psymbol         zero
