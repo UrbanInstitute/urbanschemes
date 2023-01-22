@@ -17,8 +17,8 @@ gen pop_mil = pop / 1000000
 graph bar pop_mil, ///
 	over(region) ///
 	subtitle("{it:Population (millions)}") ///
-	ylab(, glcolor(white)) ///
-	ytitle("")
+	ytitle("") ///
+	ylab(, glcolor(white))
 graph export "bar.png", replace
 	
 **# Grouped bar/column chart
@@ -42,10 +42,7 @@ graph export "line.png", replace
 **# Scatter plot with best fit line
 sysuse auto, clear
 
-gen label = inlist(make, "VW Diesel", "Plym. Arrow", "Olds 98", "Cad. Seville", "Toyota Celica") // outliers to label
-
-gen vpos = 7 // helper var for labels positions
-	replace vpos = 5 if inlist(make, "Olds 98", "Cad. Seville")
+gen label_indicator = inlist(make, "VW Diesel", "Plym. Arrow", "Olds 98", "Cad. Seville", "Toyota Celica") // outliers to label
 
 corr mpg weight // store correlation coefficient
 local rho = string(r(rho), "%03.2f")
@@ -53,10 +50,14 @@ di("`rho'")
 
 twoway /// 
 	(scatter mpg weight, msymbol(circle_hollow) msize(1.5)) || ///
+	(scatter mpg weight if label_indicator == 1, ///
+		msymbol(circle_hollow) msize(1.5) ///
+		mlabel(make) mlabposition(7) mlabgap(.2) mlabsize(1.5) mlabcolor("0 0 0")) || ///
 	(lfit mpg weight, lcolor("236 0 139") lwidth(.2)), ///
 	legend(off) ///
 	subtitle("{it:Mileage (mpg)}") ///
 	xtitle("{it:Weight (lbs.)}") ///
+	xlab(, noticks) ///	
 	ylab(, noticks) ///
 	text(11 4500 `"Corr = `rho'"')
 graph export "scatter.png", replace
