@@ -1211,9 +1211,9 @@ linewidth p            medium
 linewidth foreground   thin
 linewidth background   thin
 ** urban style - thin grid lines
-linewidth grid         vthin
-linewidth major_grid   vthin
-linewidth minor_grid   vthin
+linewidth grid         thin
+linewidth major_grid   thin
+linewidth minor_grid   thin
 linewidth axisline     thin
 linewidth tick         thin
 linewidth minortick    thin
