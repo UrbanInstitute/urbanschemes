@@ -65,7 +65,7 @@ ylab(, noticks) ///
 xlab(, noticks)
 ```
 
-### Colors
+### Scheme Colors
 Coming soon.
 
 ### Exporting Plots
