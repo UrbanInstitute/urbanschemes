@@ -59,14 +59,14 @@ ylab(, glcolor(white))
 ```
 
 ### Ticks
-Axis ticks are on by default for many plots. To remove these ticks, add the following line to your plot code:
+Axis ticks are on by default for many plots. To remove these ticks, add the following line(s) to your plot code:
 ```
-ylab(, noticks)
+ylab(, noticks) ///
 xlab(, noticks)
 ```
 
 ### Exporting Plots
-Sample plots in this repo are included as `.png` files. If using Windows, I recommended exporting plots as `.emf` files for best quality. 
+Sample plots in this repo are included as `.png` files. If using Windows, exporting plots as `.emf` files will provide best quality for reports. 
 After generating a plot, include the following line:
 ```
 graph export "[PATH]\[PLOT NAME].[FILE TYPE]", replace
