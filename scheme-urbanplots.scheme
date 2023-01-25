@@ -141,7 +141,7 @@ gsize subheading      2.75
 gsize axis_title      2.75
 gsize matrix_label    medlarge
 ** urban style - label size
-gsize label           2.75     
+gsize label           2.75
 gsize small_label     small     
 gsize matrix_marklbl  small     
 ** urban style - legend key label size
@@ -577,7 +577,6 @@ linepattern ci          solid
 linepattern ci_area     solid
 linepattern histogram   solid
 linepattern dendrogram  solid
-** urban style - grid line
 linepattern grid        dot
 linepattern major_grid  dot
 linepattern minor_grid  dot
@@ -756,7 +755,8 @@ margin axis_title        zero
 margin label             zero
 margin key_label         zero
 margin text_option       zero
-margin plotregion        medsmall
+** urban style - plotregion gaps
+margin plotregion        "b = 0"
 margin star              tiny
 margin bargraph          bargraph
 margin boxgraph          bargraph
@@ -1210,9 +1210,10 @@ linewidth medium       medium
 linewidth p            medium
 linewidth foreground   thin
 linewidth background   thin
-linewidth grid         medium
-linewidth major_grid   medium
-linewidth minor_grid   thin
+** urban style - thin grid lines
+linewidth grid         vthin
+linewidth major_grid   vthin
+linewidth minor_grid   vthin
 linewidth axisline     thin
 linewidth tick         thin
 linewidth minortick    thin
