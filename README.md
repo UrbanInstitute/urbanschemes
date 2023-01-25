@@ -65,6 +65,9 @@ ylab(, noticks) ///
 xlab(, noticks)
 ```
 
+### Colors
+Coming soon.
+
 ### Exporting Plots
 Sample plots in this repo are included as `.png` files. If using Windows, exporting plots as `.emf` files will provide best quality for reports. 
 After generating a plot, include the following line:
@@ -74,79 +77,126 @@ graph export "[PATH]\[PLOT NAME].[FILE TYPE]", replace
 Where `[FILE TYPE]` may be `emf`, `png`, etc.
 
 ## Examples
+The example plots in this section show how to utilize `urbanplots` when creating common plot types. These examples do not capture all possibilities, but cover some common plotting choices. Throughout this section, refer to inline code comments following `//` for brief explanations.
+
 ### Bar/Column Plot
-This bar plot compares population (in millions) by US region. We make the necessary y-axis placement adjustment (described above) with the `subtitle` and `ytitle` lines. We also remove the grid lines (described above) with the `ylab` line.
+The following bar charts visualize population by US region using the `census` dataset included with a Stata installation.
+
+**Example 1**
+This example displays population values (in millions) along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Style Guide guidelines for print materials.
 ```
 sysuse census, clear
 collapse (sum) pop, by(region)
-gen pop_mil = pop / 1000000
+gen pop_mill = pop / 1000000
 
-graph bar pop_mil, ///
-	over(region) ///
-	subtitle("{it:Population (millions)}") ///
-	ytitle("") ///
-	ylab(, glcolor(white))
+graph bar pop_mil, over(region) /// // plot population (millions) by region
+	subtitle("{it:Population (millions)}") /// // subtitle = y-axis title
+	ytitle("") /// // remove y-axis title from side of plot
+	ylab(, format(%2.0f) noticks) /// // format y-axis labels to two digits and remove ticks
+	yscale(lcolor(white)) // remove y-axis line
 ```
-![Sample bar plot](sample-plots/bar.png)
+<img src="sample-plots/bar-v1.png" width="750">
+
+**Example 2**
+This example labels each bar with the corresponding population value, and no longer displays y-axis labels. The y-axis title is removed, so users should be sure to adequately describe the plot in the title included in any report or presentation materials. Grid lines are removed.
+```
+sysuse census, clear
+collapse (sum) pop, by(region)
+
+graph bar pop, over(region) /// // plot population by region
+	blabel(total, format(%12.0fc)) /// // label bars with total population, formatted with commas
+	ytitle("") /// // remove y-axis title from side of plot
+	ylab(, glcolor(white) noticks nolab) /// // remove grid lines, y-axis ticks, and y-axis labels
+	yscale(lcolor(white)) // remove y-axis line
+```
+<img src="sample-plots/bar-v2.png" width="750">
+
+**Example 3**
+This example treats each region as a separate y-variable, allowing us to more easily control bar colors. Other options align with the previous example.
+```
+sysuse census, clear
+collapse (sum) pop, by(region)
+
+graph bar pop, over(region) /// // plot population by region
+	asyvars  /// // plot region populations as separate variables (to easily control colors)
+	showyvars /// // show region labels on x-axis
+	blabel(total, format(%12.0fc)) /// // label bars with total population, formatted with commas
+	bargap(75) /// // increase space between bars
+	ytitle("") /// // remove y-axis title from side of plot
+	ylab(, glcolor(white) noticks nolab) /// // remove grid lines, y-axis ticks, and y-axis labels
+	yscale(lcolor(white)) /// // remove y-axis line
+	legend(off) // turn legend off
+```
+<img src="sample-plots/bar-v3.png" width="750">
 
 ### Grouped Bar/Column Plot
-This bar plot compares average January and July temperature by US region. We make the necessary y-axis placement adjustment (described above) with the `subtitle` line (the `ytitle` is not necessary here due to the default settings for a grouped bar chart). We also edit the legend labels with the `legend` line.
+The following bar charts visualize January and July average temperature by US region using the `citytemp` dataset included with a Stata installation.
+
+**Example 1**
+This example displays temperature values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Style Guide guidelines for print materials. The legend is placed above the plot area.
 ```
 sysuse citytemp, clear
 
-graph bar tempjan tempjuly, over(region) ///
-	subtitle("{it:Average temperature (f)}") ///
-	ylab(, glcolor(white)) ///
-	legend(label(1 "January") label(2 "July"))	
+graph bar tempjan tempjuly, over(region) /// // plot jan and june temp by region
+	subtitle("{it:Average temperature (f)}") /// // subtitle = y-axis title
+	ylab(, noticks) /// // remove y-axis ticks
+	yscale(lc(white)) /// // remove y-axis line
+	legend(label(1 "January") label(2 "July")) /// // relabel legend
+	plotregion(margin(t = 6)) // make space on top of plot for legend
 ```
-![Sample grouped bar plot](sample-plots/grouped-bar.png)
+<img src="sample-plots/grouped-bar-v1.png" width="750">
+
+**Example 2**
+This example labels each bar with the corresponding temperature value, and no longer displays y-axis labels. The y-axis title is removed, so users should be sure to adequately describe the plot in the title included in any report or presentation materials. The legend is placed above the plot area. Grid lines are removed.
+```
+sysuse citytemp, clear
+
+graph bar tempjan tempjuly, over(region) /// // plot jan and june temp by region
+	blabel(total, format("%2.0f")) /// // label bars with temperatures formatted to two digits
+	ylab(, glcolor(white) noticks nolab) /// // remove grid lines, y-axis ticks, and y-axis labels
+	yscale(lc(white)) /// // remove y-axis line
+	legend(label(1 "January") label(2 "July")) /// // relabel legend
+	plotregion(margin(t = 12)) // make space on top of plot for legend
+```
+<img src="sample-plots/grouped-bar-v2.png" width="750">
 
 ### Line Plot
-This line plot compares average US life expectancy over time for white males and Black males. We make the necessary y-axis placement adjustment (described above) with the `subtitle` line (the `ytitle` line is not necessary here due to the default settings for a line chart with two series). We also choose to remove the automatic x-axis label ("Year") because the x-axis is understandable without it.  We also edit the legend labels with the `legend` line.
+This line plot compares average US life expectancy over time for white males and Black males. This example displays age values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Style Guide guidelines for print materials. The legend is placed above the plot area.
 ```
 sysuse uslifeexp, clear
 
-line le_wm le_bm year, ///
-	subtitle("{it:Life expectancy (years)}") ///
-	xtitle("") ///
-	legend(label(1 "White Males") label(2 "Black Males"))
+line le_wm le_bm year, /// // plot life expectancy over time by race
+	subtitle("{it:Life expectancy (years)}") /// // subtitle = y-axis title
+	ylab(0(10)80, noticks) /// // reset y-axis to begin at 0, remove y-axis ticks
+	yscale(lc(white)) /// // remove y-axis line
+	xtitle("") /// // remove unnecessary x-axis title ("Years")
+	legend(label(1 "White Males") label(2 "Black Males")) /// // relabel legend
+	plotregion(margin(b = 0 t = 6)) // remove gap at bottom of plot, make space on top of plot for legend
 ```
-![Sample line plot](sample-plots/line.png)
+<img src="sample-plots/line-v1.png" width="750">
 
 ### Scatter Plot with Best Fit Line
 This scatter plot with best fit line explores the relationship between automobile weight and mileage. This example is intended to demonstrate a more complex `twoway` plot and provides examples of customizing some `urbanplots` defaults. 
 
-A `twoway` plot allows us to overlay multiple plots. The first `scatter` plots all points, and we choose to customize the `msymbol` and `msize`. The second `scatter` plots the points for which we have created a `label_indicator`, and we add a range of customizations for the labels. Then, the `lfit` line plots a predicted line of best fit, and we specify the color and width of this line.
-
-Additional customizations include:
-* turn off the legend with the `legend` line
-* y-axis placement adjustment (described above) with the `subtitle` line
-* make x-axis label italicized with the `xtitle` line
-* remove ticks with the `xlab` and `ylab` lines
-* add text with the stored correlation coefficient with the `text` line
+A `twoway` plot allows us to overlay multiple plots. The first `scatter` plots all points, and we choose to customize the `msize`. The `lfit` line plots a predicted line of best fit, and we specify the color and width of this line. The plot also displays the correlation coefficient value.
 ```
 sysuse auto, clear
-
-gen label_indicator = inlist(make, "VW Diesel", "Plym. Arrow", "Olds 98", "Cad. Seville", "Toyota Celica") // outliers to label
 
 corr mpg weight // store correlation coefficient
 local rho = string(r(rho), "%03.2f")
 di("`rho'")
 
 twoway /// 
-	(scatter mpg weight, msymbol(circle_hollow) msize(1.5)) || ///
-	(scatter mpg weight if label_indicator == 1, ///
-		msymbol(circle_hollow) msize(1.5) ///
-		mlabel(make) mlabposition(7) mlabgap(.2) mlabsize(1.5) mlabcolor("0 0 0")) || ///
-	(lfit mpg weight, lcolor("236 0 139") lwidth(.2)), ///
-	legend(off) ///
-	subtitle("{it:Mileage (mpg)}") ///
-	xtitle("{it:Weight (lbs.)}") ///
-	xlab(, noticks) ///	
-	ylab(, noticks) ///
-	text(11 4500 `"Corr = `rho'"')
+	(scatter mpg weight, msize(1.5)) || /// // scatter mpg and weight
+	(lfit mpg weight, lcolor("236 0 139") lwidth(.2)), /// // fit predicted line, change color and width
+	subtitle("{it:Mileage (mpg)}") //// // subtitle = y-axis title
+	xtitle("{it:Weight (lbs)}") /// // x-axis title
+	xlab(, noticks) /// //	remove x-axis ticks
+	ylab(, noticks) ///	// remove y-axis ticks
+	legend(off) /// // turn off legend
+	text(11 4450 `"Corr = `rho'"') // add correlation coefficient
 ```
-![Sample scatter plot](sample-plots/scatter.png)
+<img src="sample-plots/scatter-v1.png" width="750">
 
 ## Contact
 Contact Jennifer Andre (jandre@urban.org) for feedback or questions.
