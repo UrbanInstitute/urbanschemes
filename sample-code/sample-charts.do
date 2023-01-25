@@ -40,7 +40,7 @@ graph bar pop, over(region) /// // plot population by region
 	asyvars  /// // plot region populations as separate variables (to easily control colors)
 	showyvars /// // show region labels on x-axis
 	blabel(total, format(%12.0fc)) /// // label bars with total population, formatted with commas
-	bargap(50) /// // increase space between bars
+	bargap(75) /// // increase space between bars
 	ytitle("") /// // remove y-axis title from side of plot
 	ylab(, glcolor(white) noticks nolab) /// // remove grid lines, y-axis ticks, and y-axis labels
 	yscale(lcolor(white)) /// // remove y-axis line
