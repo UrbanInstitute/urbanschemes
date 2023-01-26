@@ -66,7 +66,27 @@ xlab(, noticks)
 ```
 
 ### Scheme Colors
-Coming soon.
+For any plot, you can always customize colors of bars, lines, markers, etc. Refer to the style guide for RGB color codes.
+
+If you do not specify a color, the `urbanplots` scheme will automatically utilize the following colors for various chart elements in this order:
+
+| Color | Name | RGB |
+| ----- | ---- | --- |
+| 1 | cyan 5 | "22 150 210" |
+| 2 | yellow | "253 191 17" |
+| 3 | black | "0 0 0" |
+| 4 | magenta | "236 0 139" |
+| 5 | gray | "210 210 210" |
+| 6 | space gray | "92 88 89" |
+| 7 | green | "85 183 72" |
+| 8 | red | "219 43 39" |
+| 9 | cyan 1 | "207 232 243" |
+| 10 | cyan 2 | "162 212 236" |
+| 11 | cyan 3 | "115 191 226" |
+| 12 | cyan 4 | "70 171 219" |
+| 13 | cyan 6 | "18 113 158" |
+| 14 | cyan 7 | "10 76 106" |
+| 15 | cyan 8 | "6 38 53" |
 
 ### Exporting Plots
 Sample plots in this repo are included as `.png` files. If using Windows, exporting plots as `.emf` files will provide best quality for reports. 
