@@ -127,12 +127,16 @@ If you do not specify a color, the `urbanplots` scheme will automatically utiliz
 | 15 | cyan 8 | "6 38 53" |
 
 ### Exporting Plots
-Sample plots in this repo are included as `.png` files. If using Windows, exporting plots as `.emf` files will provide best quality for reports. 
-After generating a plot, include the following line:
+Your chosen file format may vary given your publication needs. For a print publication, a format like `.svg` or `.emf` may provide highest quality. Sample plots in this repository are included as `.svg` files.
+
+You can export a generated plot by including the following line, where `[FILE TYPE]` may be `svg`, `emf`, `png`, etc.:
 ```
 graph export "[PATH]\[PLOT NAME].[FILE TYPE]", replace
 ```
-Where `[FILE TYPE]` may be `emf`, `png`, etc.
+If exporting as `.svg`, you may need to include an additional suboption to maintain the Lato fontface.
+```
+graph export "[PATH]\[PLOT NAME].svg", fontface(Lato) replace
+```
 
 ## Examples
 The example plots in this section show how to utilize `urbanplots` when creating common plot types. These examples do not capture all possibilities, but cover some common plotting choices. Throughout this section, refer to inline code comments following `//` for brief explanations.
@@ -152,7 +156,7 @@ graph bar pop_mil, over(region) /// // plot population (millions) by region
 	ylab(, format(%2.0f) noticks) /// // format y-axis labels to two digits and remove ticks
 	yscale(lcolor(white)) // remove y-axis line
 ```
-<img src="sample-plots/bar-v1.png" width="650">
+<img src="sample-plots/bar-v1.svg" width="650">
 
 **Example 2**: This example labels each bar with the corresponding population value, and no longer displays y-axis labels. The y-axis title is removed, so users should be sure to adequately describe the plot in the title included in any report or presentation materials. Grid lines are removed.
 ```
@@ -165,7 +169,7 @@ graph bar pop, over(region) /// // plot population by region
 	ylab(, glcolor(white) noticks nolab) /// // remove grid lines, y-axis ticks, and y-axis labels
 	yscale(lcolor(white)) // remove y-axis line
 ```
-<img src="sample-plots/bar-v2.png" width="650">
+<img src="sample-plots/bar-v2.svg" width="650">
 
 **Example 3**: This example treats each region as a separate y-variable, allowing us to more easily control bar colors. Other options align with the previous example.
 ```
@@ -182,7 +186,7 @@ graph bar pop, over(region) /// // plot population by region
 	yscale(lcolor(white)) /// // remove y-axis line
 	legend(off) // turn legend off
 ```
-<img src="sample-plots/bar-v3.png" width="650">
+<img src="sample-plots/bar-v3.svg" width="650">
 
 ### Grouped Bar/Column Plot
 The following bar charts visualize January and July average temperature by US region using the `citytemp` dataset included with a Stata installation.
@@ -198,7 +202,7 @@ graph bar tempjan tempjuly, over(region) /// // plot jan and june temp by region
 	legend(label(1 "January") label(2 "July")) /// // relabel legend
 	plotregion(margin(t = 6)) // make space on top of plot for legend
 ```
-<img src="sample-plots/grouped-bar-v1.png" width="650">
+<img src="sample-plots/grouped-bar-v1.svg" width="650">
 
 **Example 2**: This example labels each bar with the corresponding temperature value, and no longer displays y-axis labels. The y-axis title is removed, so users should be sure to adequately describe the plot in the title included in any report or presentation materials. The legend is placed above the plot area. Grid lines are removed.
 ```
@@ -211,7 +215,7 @@ graph bar tempjan tempjuly, over(region) /// // plot jan and june temp by region
 	legend(label(1 "January") label(2 "July")) /// // relabel legend
 	plotregion(margin(t = 12)) // make space on top of plot for legend
 ```
-<img src="sample-plots/grouped-bar-v2.png" width="650">
+<img src="sample-plots/grouped-bar-v2.svg" width="650">
 
 ### Line Plot
 This line plot compares average US life expectancy over time for white males and Black males. This example displays age values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area.
@@ -226,7 +230,7 @@ line le_wm le_bm year, /// // plot life expectancy over time by race
 	legend(label(1 "White Males") label(2 "Black Males")) /// // relabel legend
 	plotregion(margin(b = 0 t = 6)) // remove gap at bottom of plot, make space on top of plot for legend
 ```
-<img src="sample-plots/line-v1.png" width="650">
+<img src="sample-plots/line-v1.svg" width="650">
 
 ### Scatter Plot with Best Fit Line
 This scatter plot with best fit line explores the relationship between automobile weight and mileage. This example is intended to demonstrate a more complex `twoway` plot and provides examples of customizing some `urbanplots` defaults. 
@@ -249,7 +253,7 @@ twoway ///
 	legend(off) /// // turn off legend
 	text(11 4450 `"Corr = `rho'"') // add correlation coefficient
 ```
-<img src="sample-plots/scatter-v1.png" width="650">
+<img src="sample-plots/scatter-v1.svg" width="650">
 
 ## Contact
 Contact Jennifer Andre (jandre@urban.org) with questions or to provide feedback.
