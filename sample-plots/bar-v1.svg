@@ -887,15 +887,15 @@
 	<rect x="3701.15" y="1489.43" width="635.02" height="1348.59" style="fill:#1696D2"/>
 	<rect x="3704.24" y="1492.52" width="628.83" height="1342.39" style="fill:none;stroke:#1696D2;stroke-width:6.19"/>
 	<line x1="283.73" y1="2838.01" x2="283.73" y2="230.64" style="stroke:#FFFFFF;stroke-width:6.19"/>
-	<text x="262.23" y="2867.84" style="font-family:'Helvetica';font-size:85.12px;fill:#000000" text-anchor="end">0</text>
-	<text x="262.23" y="2243.05" style="font-family:'Helvetica';font-size:85.12px;fill:#000000" text-anchor="end">20</text>
-	<text x="262.23" y="1618.27" style="font-family:'Helvetica';font-size:85.12px;fill:#000000" text-anchor="end">40</text>
-	<text x="262.23" y="993.63" style="font-family:'Helvetica';font-size:85.12px;fill:#000000" text-anchor="end">60</text>
-	<text x="262.23" y="368.84" style="font-family:'Helvetica';font-size:85.12px;fill:#000000" text-anchor="end">80</text>
+	<text x="262.23" y="2867.84" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="end">0</text>
+	<text x="262.23" y="2243.05" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="end">20</text>
+	<text x="262.23" y="1618.27" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="end">40</text>
+	<text x="262.23" y="993.63" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="end">60</text>
+	<text x="262.23" y="368.84" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="end">80</text>
 	<line x1="283.73" y1="2838.01" x2="4571.63" y2="2838.01" style="stroke:#000000;stroke-width:6.19"/>
-	<text x="836.70" y="2940.52" style="font-family:'Helvetica';font-size:85.12px;fill:#000000" text-anchor="middle">NE</text>
-	<text x="1897.30" y="2940.52" style="font-family:'Helvetica';font-size:85.12px;fill:#000000" text-anchor="middle">N Cntrl</text>
-	<text x="2958.05" y="2940.52" style="font-family:'Helvetica';font-size:85.12px;fill:#000000" text-anchor="middle">South</text>
-	<text x="4018.66" y="2940.52" style="font-family:'Helvetica';font-size:85.12px;fill:#000000" text-anchor="middle">West</text>
-	<text x="126.95" y="186.46" style="font-family:'Helvetica';font-style:italic;font-size:85.12px;fill:#000000">Population (millions)</text>
+	<text x="836.70" y="2940.52" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="middle">NE</text>
+	<text x="1897.30" y="2940.52" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="middle">N Cntrl</text>
+	<text x="2958.05" y="2940.52" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="middle">South</text>
+	<text x="4018.66" y="2940.52" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="middle">West</text>
+	<text x="126.95" y="186.46" style="font-family:'Lato';font-style:italic;font-size:85.12px;fill:#000000">Population (millions)</text>
 </svg>
