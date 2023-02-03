@@ -84,6 +84,22 @@ graph export "grouped-bar-v2.emf", replace
 graph export "grouped-bar-v2.png", replace
 graph export "grouped-bar-v2.tif", replace
 
+**# Horizontal bar chart - v1
+sysuse auto, clear
+split make, p(" ") 
+
+graph hbar (mean) price, ///
+	over(make1, sort(1) descending) /// // sort bars in descending order of 1st (only) variable
+	subtitle("{it:Average price (dollars)}") //// // subtitle = y-axis title
+	ytitle("") /// // remove y-axis title
+	ylab(, noticks) /// // remove y-axis ticks
+	yscale(lc(white)) /// // remove y-axis line
+	plotregion(margin(b = 0 t = 0)) // remove gap at bottom and top of plot
+graph export "horiz-bar-v1.svg", replace fontface(Lato)
+graph export "horiz-bar-v1.emf", replace	
+graph export "horiz-bar-v1.png", replace
+graph export "horiz-bar-v1.tif", replace
+
 **# Line chart - v1 
 sysuse uslifeexp, clear
 
