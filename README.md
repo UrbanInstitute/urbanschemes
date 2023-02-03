@@ -217,8 +217,26 @@ graph bar tempjan tempjuly, over(region) /// // plot jan and june temp by region
 ```
 <img src="sample-plots/grouped-bar-v2.svg" width="650">
 
+### Horizontal bar chart
+This bar chart visualizes average car price by manufacturer using the `auto` dataset included with a Stata installation.
+
+With a horizontal bar chart, the y-axis is "flipped" to the horizontal position but must still be referred to with y-axis options. This example displays average car prices along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials.
+```
+sysuse auto, clear
+split make, p(" ") 
+
+graph hbar (mean) price, ///
+	over(make1, sort(1) descending) /// // sort bars in descending order of 1st (only) variable
+	subtitle("{it:Average price (dollars)}") //// // subtitle = y-axis title
+	ytitle("") /// // remove y-axis title - moved to subtitle position
+	ylab(, noticks) /// // remove y-axis ticks
+	yscale(lc(white)) /// // remove y-axis line
+	plotregion(margin(b = 0 t = 0)) // remove gap at bottom and top of plot
+```
+<img src="sample-plots/horiz-bar-v1.svg" width="650">
+
 ### Line Plot
-This line plot compares average US life expectancy over time for white males and Black males. This example displays age values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area.
+This line plot compares average US life expectancy over time for white males and Black males using the `uslifeexp` dataset included with a Stata installation. This example displays age values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area.
 ```
 sysuse uslifeexp, clear
 
