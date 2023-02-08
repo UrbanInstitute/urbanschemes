@@ -39,7 +39,9 @@ Instead of globally setting the scheme, you may alternatively include `scheme(ur
 These commands can be included in your `profile.do` to automatically run on startup (see [details](https://www.stata.com/support/faqs/programming/profile-do-file/)).
 
 ## Tips
-This section covers a range of guidelines for certain aspects of the scheme. These tips generally suggest adding a specific line to your plotting code. Note that you can only have one instance of each option - for example, if your plotting code already includes a `ylab` option, you cannot add another separate one. Instead, you must combine the suboptions within one option. For example:
+This section covers a range of guidelines for using the scheme. While the scheme defines many default settings, users often must turn these on or off within a graph command code chunk by adding or modifying an option.
+
+Note that you can only have one instance of each option for a given graph command. For example, if your plotting code already includes a `ylab` option, you cannot add another separate one. Instead, you must combine the suboptions within one option. For example:
 ```
 ylab(, suboption1 suboption2)
 ```
@@ -53,10 +55,9 @@ xtitle("{it:This is my x-axis title}")
 ```
 
 ### y-axis Titles
-The Urban Institute Data Visualization Style Guide indicates that the y-axis title should be horizontal aross the top left corner of the plot. This change is not automatically reflected in the scheme. Add the following lines to your plot code to make this change:
+The y-axis title should be horizontal aross the top left corner of the plot. This change is not automatically reflected in the scheme. Add the following options to your graph command to make this change:
 ```
-  subtitle("{it:This is my y-axis title") ///
-  ytitle("")
+  subtitle("{it:This is my y-axis title"}) ytitle("")
 ```
 
 ### Grid lines
@@ -83,12 +84,11 @@ ylab(, nolab)
 ### Ticks
 Axis ticks are on by default for many plots. To remove these ticks, add the following line(s) to your plot code:
 ```
-ylab(, noticks) ///
-xlab(, noticks)
+ylab(, noticks) xlab(, noticks)
 ```
 
 ### Legend
-By default, the `urbanplots` scheme places the legend at the top of a chart. Based on the chart type, you might want to add some additional white space around it. To do so, add the following line to your plot code, where [X] is an integer value indicating the relative percentage of white space you want to add:
+By default, the scheme places the legend at the top of a chart. Based on the chart type, you might want to add some additional white space around it. To do so, add the following line to your plot code, where [X] is an integer value indicating the relative percentage of white space you want to add:
 ```
 plotregion(margin(t = [X]))
 ```
@@ -104,9 +104,9 @@ plotregion(margin(l = 0))
 ```
 
 ### Scheme Colors
-For any plot, you can always customize colors of bars, lines, markers, etc. Refer to the style guide for RGB color codes.
+For any plot, you can always customize the colors of bars, lines, markers, etc. Refer to the style guide for RGB color codes.
 
-If you do not specify a color, the `urbanplots` scheme will automatically utilize the following colors for various chart elements in this order:
+If you do not specify a color, the scheme will automatically utilize the following colors for various chart elements in this order:
 
 | Color | Name | RGB |
 | ----- | ---- | --- |
@@ -129,7 +129,7 @@ If you do not specify a color, the `urbanplots` scheme will automatically utiliz
 ### Exporting Plots
 Your chosen file format may vary given your publication needs. For a print publication, a format like `.svg` or `.emf` may provide highest quality. Sample plots in this repository are included as `.svg` files.
 
-You can export a generated plot by including the following line, where `[FILE TYPE]` may be `svg`, `emf`, `png`, etc.:
+You can export a generated plot with the following command, where `[FILE TYPE]` may be `svg`, `emf`, `png`, etc.:
 ```
 graph export "[PATH]\[PLOT NAME].[FILE TYPE]", replace
 ```
@@ -140,6 +140,10 @@ graph export "[PATH]\[PLOT NAME].svg", fontface(Lato) replace
 
 ## Examples
 The example plots in this section show how to utilize `urbanplots` when creating common plot types. These examples do not capture all possibilities, but cover some common plotting choices. Throughout this section, refer to inline code comments following `//` for brief explanations.
+
+These examples use datasets included with a Stata installation. After loading one of these datasets, use `notes` to see some documentation, if available.
+
+Note that there is some loss of quality in the embedded images below - refer to the image files included in this repository for better quality.
 
 ### Bar/Column Plot
 The following bar charts visualize population by US region using the `census` dataset included with a Stata installation.
@@ -236,7 +240,9 @@ graph hbar (mean) price, ///
 <img src="sample-plots/horiz-bar-v1.svg" width="650">
 
 ### Line Plot
-This line plot compares average US life expectancy over time for white males and Black males using the `uslifeexp` dataset included with a Stata installation. This example displays age values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area.
+This line plot compares average US life expectancy over time for white males and Black males using the `uslifeexp` dataset included with a Stata installation. 
+
+This example displays age values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area.
 ```
 sysuse uslifeexp, clear
 
