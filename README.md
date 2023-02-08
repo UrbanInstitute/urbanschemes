@@ -34,7 +34,7 @@ Set the scheme and font at the beginning of a .do file with the following comman
 set scheme urbanplots
 graph set window fontface "Lato"
 ```
-Instead of globally setting the scheme, you may alternatively include `scheme(urbanscheme)` within a plot code chunk.
+Instead of globally setting the scheme, you may alternatively include `scheme(urbanplots)` as a graph command option.
 
 These commands can be included in your `profile.do` to automatically run on startup (see [details](https://www.stata.com/support/faqs/programming/profile-do-file/)).
 
