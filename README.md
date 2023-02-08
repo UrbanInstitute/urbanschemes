@@ -8,9 +8,9 @@ Currently, this scheme is optimized to produce report-ready static figures *with
 This scheme is currently under development.
 
 ## Background
-Stata offers a lot of flexibility for data visualizations. This flexibility is great for developing complex, reproducibile visualizations - but, it often requires long and potentially confusing syntax. The goal of this scheme is to include most of that complex syntax as default settings, so that the user can focus on the most important plotting decisions while complying with the Urban Institute Data Visualization Style Guide.
+Stata offers a lot of flexibility for data visualizations. This flexibility is great for developing complex, reproducibile visualizations - but it often requires long and potentially confusing syntax. The goal of this scheme is to include most of that complex syntax as default settings, so that the user can focus on the most important plotting decisions while complying with the Urban Institute Data Visualization Style Guide.
 
-This scheme is not intended to cover the vast range of graphing capabilities and options. Refer to Stata documentation to learn more about [graph commands](https://www.stata.com/manuals13/g-2graph.pdf).
+This scheme is not intended to cover all of the vast range of graphing capabilities and options. Refer to Stata documentation to learn more about [graph commands](https://www.stata.com/manuals13/g-2graph.pdf).
 
 Here are some helpful resources on schemes:
 * [Stata graphs: Define your own color schemes, by Asjad Naqvi on Medium](https://medium.com/the-stata-guide/stata-graphs-define-your-own-color-schemes-4320b16f7ef7)
