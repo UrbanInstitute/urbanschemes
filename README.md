@@ -5,7 +5,7 @@
 
 Currently, this scheme is optimized to produce report-ready static figures *without* titles, subtitles, citations, or notes. These must be included separately in your report.
 
-This scheme is currently under development.
+This scheme is currently under development. Current version: 0.2.0.
 
 ## Background
 Stata offers a lot of flexibility for data visualizations. This flexibility is great for developing complex, reproducibile visualizations - but it often requires long and potentially confusing syntax. The goal of this scheme is to include most of that complex syntax as default settings, so that the user can focus on the most important plotting decisions while complying with the Urban Institute Data Visualization Style Guide.
