@@ -26,7 +26,7 @@ net install urbanplots, from(TBD)
 ```
 
 ### Fonts
-The Urban Institute uses Lato font for publications. Make sure [Lato](https://fonts.google.com/specimen/Lato) is installed before proceeding. The Lato font cannot be included in the scheme and must be set independently (see Tips).
+The Urban Institute uses Lato font for publications. Make sure [Lato](https://fonts.google.com/specimen/Lato) is installed before proceeding. The Lato font cannot be included in the scheme and must be set independently.
 
 ## Getting Started
 Set the scheme and font at the beginning of a .do file with the following commands:
