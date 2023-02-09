@@ -1,5 +1,5 @@
 v 3
-d urbnschemes
+d urbanschemes
 d stata visualization scheme for Urban Institute Style Guide
 d Jennifer Andre, Urban Institute
-p urbnschemes
+p urbanschemes

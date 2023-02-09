@@ -1,12 +1,12 @@
 
-*** Urban Stata Scheme: urbanplots
+*** Urban Stata Scheme: urbanschemes
 *** Sample charts code
-*** 01252023
+*** 02092023
 
 cd ..\sample-plots
 
 **# Setup: set scheme and fontface
-set scheme urbanplots
+set scheme urbanschemes
 graph set window fontface "Lato"
 
 **# Bar/column chart - v1 (with y-axis labels)
