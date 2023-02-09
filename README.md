@@ -1,7 +1,7 @@
-# urbanplots
+# urbnschemes
 
 ## Overview
-`urbanplots` is a custom Stata scheme for creating Urban Institute-themed plots (see `help schemes` for more [details](https://www.stata.com/manuals/g-4schemesintro.pdf)). The scheme is built upon the popular `s2color` scheme, with further customizations to align with the [Urban Institute Data Visualization Style Guide](https://urbaninstitute.github.io/graphics-styleguide/).
+`urbnschemes` is a custom Stata scheme for creating Urban Institute-themed visualizations (see `help schemes` for more [details](https://www.stata.com/manuals/g-4schemesintro.pdf)). The scheme is built upon the popular `s2color` scheme, with further customizations to align with the [Urban Institute Data Visualization Style Guide](https://urbaninstitute.github.io/graphics-styleguide/).
 
 Currently, this scheme is optimized to produce report-ready static figures *without* titles, subtitles, citations, or notes. These must be included separately in your report.
 
@@ -22,7 +22,7 @@ Here are some helpful resources on schemes:
 ### Install
 By default, these instructions will install the scheme files into your "PLUS" ado directory (see [ado details](https://www.stata.com/support/faqs/programming/personal-ado-directory/), see [net details](https://www.stata.com/manuals13/rnet.pdf)). Use command `sysdir` to confirm this location.
 ```
-net install urbanplots, replace from(TBD)
+net install urbnschemes, replace from("https://ui-research.github.io/urbnschemes/")
 ```
 
 ### Fonts
@@ -31,10 +31,10 @@ The Urban Institute uses Lato font for publications. Make sure [Lato](https://fo
 ## Getting Started
 Set the scheme and font at the beginning of a .do file with the following commands:
 ```
-set scheme urbanplots
+set scheme urbnschemes
 graph set window fontface "Lato"
 ```
-Instead of globally setting the scheme, you may alternatively include `scheme(urbanplots)` as a graph command option.
+Instead of globally setting the scheme, you may alternatively include `scheme(urbnschemes)` as a graph command option.
 
 These commands can be included in your `profile.do` to automatically run on startup (see [details](https://www.stata.com/support/faqs/programming/profile-do-file/)).
 
@@ -139,7 +139,7 @@ graph export "[PATH]\[PLOT NAME].svg", fontface(Lato) replace
 ```
 
 ## Examples
-The example plots in this section show how to utilize `urbanplots` when creating common plot types. These examples do not capture all possibilities, but cover some common plotting choices. Throughout this section, refer to inline code comments following `//` for brief explanations.
+The example plots in this section show how to utilize `urbnschemes` when creating common plot types. These examples do not capture all possibilities, but cover some common plotting choices. Throughout this section, refer to inline code comments following `//` for brief explanations.
 
 These examples use datasets included with a Stata installation. After loading one of these datasets, use `notes` to see some documentation, if available.
 
@@ -257,7 +257,7 @@ line le_wm le_bm year, /// // plot life expectancy over time by race
 <img src="sample-plots/line-v1.svg" width="650">
 
 ### Scatter Plot with Best Fit Line
-This scatter plot with best fit line explores the relationship between automobile weight and mileage. This example is intended to demonstrate a more complex `twoway` plot and provides examples of customizing some `urbanplots` defaults. 
+This scatter plot with best fit line explores the relationship between automobile weight and mileage. This example is intended to demonstrate a more complex `twoway` plot and provides examples of customizing some `urbnschemes` defaults. 
 
 A `twoway` plot allows us to overlay multiple plots. The first `scatter` plots all points, and we choose to customize the `msize`. The `lfit` line plots a predicted line of best fit, and we specify the color and width of this line. The plot also displays the correlation coefficient value.
 ```
