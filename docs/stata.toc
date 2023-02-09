@@ -1,5 +1,5 @@
 v 3
-d urbanplots
+d urbnschemes
 d stata visualization scheme for Urban Institute Style Guide
 d Jennifer Andre, Urban Institute
-p urbanplots
+p urbnschemes
