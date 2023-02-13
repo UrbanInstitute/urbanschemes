@@ -722,7 +722,7 @@
 	<rect x="3773.21" y="2066.94" width="238.61" height="648.99" style="fill:none;stroke:#1696D2;stroke-width:9.29"/>
 	<rect x="4016.46" y="1942.66" width="247.75" height="777.91" style="fill:#1696D2"/>
 	<rect x="4021.11" y="1947.30" width="238.46" height="768.62" style="fill:none;stroke:#1696D2;stroke-width:9.29"/>
-	<line x1="355.83" y1="2720.57" x2="355.83" y2="230.64" style="stroke:#000000;stroke-width:6.19"/>
+	<line x1="355.83" y1="2720.57" x2="355.83" y2="230.64" style="stroke:#FFFFFF;stroke-width:6.19"/>
 	<text x="334.33" y="2750.40" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="end">0</text>
 	<text x="334.33" y="1943.09" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="end">.002</text>
 	<text x="334.33" y="1135.93" style="font-family:'Lato';font-size:85.12px;fill:#000000" text-anchor="end">.004</text>

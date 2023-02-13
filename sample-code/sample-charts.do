@@ -1,7 +1,7 @@
 
 *** Urban Stata Scheme: urbanschemes
 *** Sample charts code
-*** 02092023
+*** 02132023
 
 cd ..\sample-plots
 
@@ -144,7 +144,8 @@ histogram open, ///
 	subtitle("{it:Density}") //// // subtitle = y-axis title
 	ytitle("") /// // remove y-axis title
 	xtitle("{it:Open price}") /// // x-axis title
-	ylab(, noticks) // remove y-axis ticks
+	ylab(, noticks) /// // remove y-axis ticks
+	yscale(lc(white)) // remove y-axis line
 graph export "hist-v1.svg", replace fontface(Lato)
 graph export "hist-v1.emf", replace
 graph export "hist-v1.png", replace
@@ -162,6 +163,7 @@ graph two ///
 	ytitle("") /// // remove y-axis title
 	xtitle("{it:MPG}") /// // x-axis title
 	ylab(, noticks) /// // remove y-axis ticks
+	yscale(lc(white)) /// // remove y-axis line
 	legend(label(1 "Foreign") label(2 "Domestic")) /// // relabel legend
 	plotregion(margin(b = 0)) // remove gap at bottom of plot
 graph export "density-v1.svg", replace fontface(Lato)
@@ -175,6 +177,7 @@ sysuse bpwide, clear
 graph box bp_before bp_after, over(agegrp) /// // box plot over age groups
 	subtitle("{it:Blood pressure by age group}") /// // subtitle = y-axis title
 	ylab(, noticks) ///	// remove y-axis ticks
+	yscale(lc(white)) /// // remove y-axis line
 	plotregion(margin(t = 10)) // make space on top of plot for legend
 graph export "box-v1.svg", replace fontface(Lato)
 graph export "box-v1.emf", replace
