@@ -136,3 +136,48 @@ graph export "scatter-v1.emf", replace
 graph export "scatter-v1.png", replace
 graph export "scatter-v1.tif", replace
 
+**# Histogram - v1
+*https://www.stata.com/support/faqs/graphics/gph/graphdocs/histogram-of-continuous-variable-as-density/index.html
+sysuse sp500, clear
+
+histogram open, ///
+	subtitle("{it:Density}") //// // subtitle = y-axis title
+	ytitle("") /// // remove y-axis title
+	xtitle("{it:Open price}") /// // x-axis title
+	xlab(, noticks) /// //	remove x-axis ticks
+	ylab(, noticks) // remove y-axis ticks
+graph export "hist-v1.svg", replace fontface(Lato)
+graph export "hist-v1.emf", replace
+graph export "hist-v1.png", replace
+graph export "hist-v1.tif", replace
+
+**# Kernel density - v1
+sysuse auto, clear
+
+local options kernel(biweight) bwidth(5) recast(area) boundary color(%50) // set kernel density options
+
+graph two ///
+	(kdensity mpg if foreign, `options') /// // kernel density plot for foreign with options
+	(kdensity mpg if !foreign, `options'), /// // kernel density plot for domestic with options
+	subtitle("{it:Density}") //// // subtitle = y-axis title
+	ytitle("") /// // remove y-axis title
+	xtitle("{it:MPG}") /// // x-axis title
+	legend(label(1 "Foreign") label(2 "Domestic")) /// // relabel legend
+	plotregion(margin(b = 0)) // remove gap at bottom of plot
+graph export "density-v1.svg", replace fontface(Lato)
+graph export "density-v1.emf", replace
+graph export "density-v1.png", replace
+graph export "density-v1.tif", replace
+
+**# Box plot - v1 *https://www.stata.com/support/faqs/graphics/gph/graphdocs/box-plot-of-two-variables-by-categorical-variable/index.html
+sysuse bpwide, clear
+
+graph box bp_before bp_after, over(agegrp) /// // box plot over age groups
+	subtitle("{it:Blood pressure by age group}") /// // subtitle = y-axis title
+	ylab(, noticks) ///	// remove y-axis ticks
+	plotregion(margin(t = 10)) // make space on top of plot for legend
+graph export "box-v1.svg", replace fontface(Lato)
+graph export "box-v1.emf", replace
+graph export "box-v1.png", replace
+graph export "box-v1.tif", replace
+
