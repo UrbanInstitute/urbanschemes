@@ -20,7 +20,7 @@
 *  graphs, plots, or other classes and their parsers.  Their contents are
 *  specific to the use and may only be understood by the caller.
 
-*!  version 0.2.0   020823
+*!  version 0.2.0   021323
 
 sequence 1210
 label "urban style scheme"
