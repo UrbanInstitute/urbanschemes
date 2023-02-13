@@ -405,9 +405,10 @@ color matrix         navy
 color matrixmarkline navy    
 color refmarker      cranberry
 color refmarkline    black
-color histogram      khaki
-color histback       gold
-color histogram_line stone
+** urban style - histogram default colors
+color histogram      "22 150 210"
+color histback       "22 150 210"
+color histogram_line "22 150 210"
 color dot_line       gs8
 color dot_arealine   gs8
 color dot_area       gs4
