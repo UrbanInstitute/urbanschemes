@@ -282,7 +282,7 @@ twoway ///
 ### Histogram
 This histogram explores the distribution of S&P 500 opening prices using the `sp500` dataset included with a Stata installation.
 
-The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. Only y-axis ticks are removed.
+The y-axis title is placed along the top of the chart and the y-axis line is removed. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. Only y-axis ticks are removed.
 ```
 sysuse sp500, clear
 
@@ -297,7 +297,7 @@ histogram open, ///
 ### Kernel density plot
 We can make a comparative kernel density plot comparing the distributions of MPG for foreign and domestic cars using the `auto` dataset included with a Stata installation.
 
-We first store the kernel density options in a local for use in the twoway plot command. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area. Only y-axis ticks are removed.
+We first store the kernel density options in a local for use in the twoway plot command. The y-axis title is placed along the top of the chart and the y-axis line is removed. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area. Only y-axis ticks are removed.
 ```
 sysuse auto, clear
 
@@ -318,7 +318,7 @@ graph two ///
 ### Box plot
 We can compare blood pressure by age group before and after a treatment by using the `bpwide` dataset included with a Stata installation.
 
-The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area. Axis ticks are removed.
+The y-axis title is placed along the top of the chart and the y-axis line is removed. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area. Axis ticks are removed.
 ```
 sysuse bpwide, clear
 
