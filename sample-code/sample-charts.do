@@ -144,7 +144,6 @@ histogram open, ///
 	subtitle("{it:Density}") //// // subtitle = y-axis title
 	ytitle("") /// // remove y-axis title
 	xtitle("{it:Open price}") /// // x-axis title
-	xlab(, noticks) /// //	remove x-axis ticks
 	ylab(, noticks) // remove y-axis ticks
 graph export "hist-v1.svg", replace fontface(Lato)
 graph export "hist-v1.emf", replace
@@ -162,6 +161,7 @@ graph two ///
 	subtitle("{it:Density}") //// // subtitle = y-axis title
 	ytitle("") /// // remove y-axis title
 	xtitle("{it:MPG}") /// // x-axis title
+	ylab(, noticks) /// // remove y-axis ticks
 	legend(label(1 "Foreign") label(2 "Domestic")) /// // relabel legend
 	plotregion(margin(b = 0)) // remove gap at bottom of plot
 graph export "density-v1.svg", replace fontface(Lato)
