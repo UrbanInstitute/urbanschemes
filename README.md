@@ -257,7 +257,7 @@ line le_wm le_bm year, /// // plot life expectancy over time by race
 <img src="sample-plots/line-v1.svg" width="650">
 
 ### Scatter Plot with Best Fit Line
-This scatter plot with best fit line explores the relationship between automobile weight and mileage. This example is intended to demonstrate a more complex `twoway` plot and provides examples of customizing some `urbanschemes` defaults. 
+This scatter plot with best fit line explores the relationship between automobile weight and mileage using the `auto` dataset included with a Stata installation. This example is intended to demonstrate a more complex `twoway` plot and provides examples of customizing some `urbanschemes` defaults. 
 
 A `twoway` plot allows us to overlay multiple plots. The first `scatter` plots all points, and we choose to customize the `msize`. The `lfit` line plots a predicted line of best fit, and we specify the color and width of this line. The plot also displays the correlation coefficient value.
 ```
@@ -278,6 +278,56 @@ twoway ///
 	text(11 4450 `"Corr = `rho'"') // add correlation coefficient
 ```
 <img src="sample-plots/scatter-v1.svg" width="650">
+
+### Histogram
+This histogram explores the distribution of S&P 500 opening prices using the `sp500` dataset included with a Stata installation.
+
+The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. Only y-axis ticks are removed.
+```
+sysuse sp500, clear
+
+histogram open, ///
+	subtitle("{it:Density}") //// // subtitle = y-axis title
+	ytitle("") /// // remove y-axis title
+	xtitle("{it:Open price}") /// // x-axis title
+	ylab(, noticks) // remove y-axis ticks
+```
+<img src="sample-plots/hist-v1.svg" width="650">
+
+### Kernel density plot
+We can make a comparative kernel density plot comparing the distributions of MPG for foreign and domestic cars using the `auto` dataset included with a Stata installation.
+
+We first store the kernel density options in a local for use in the twoway plot command. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area. Only y-axis ticks are removed.
+```
+sysuse auto, clear
+
+local options kernel(biweight) bwidth(5) recast(area) boundary color(%50) // set kernel density options
+
+graph two ///
+	(kdensity mpg if foreign, `options') /// // kernel density plot for foreign with options
+	(kdensity mpg if !foreign, `options'), /// // kernel density plot for domestic with options
+	subtitle("{it:Density}") //// // subtitle = y-axis title
+	ytitle("") /// // remove y-axis title
+	xtitle("{it:MPG}") /// // x-axis title
+	ylab(, noticks) /// // remove y-axis ticks
+	legend(label(1 "Foreign") label(2 "Domestic")) /// // relabel legend
+	plotregion(margin(b = 0)) // remove gap at bottom of plot
+```
+<img src="sample-plots/density-v1.svg" width="650">
+
+### Box plot
+We can compare blood pressure by age group before and after a treatment by using the `bpwide` dataset included with a Stata installation.
+
+The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area. Axis ticks are removed.
+```
+sysuse bpwide, clear
+
+graph box bp_before bp_after, over(agegrp) /// // box plot over age groups
+	subtitle("{it:Blood pressure by age group}") /// // subtitle = y-axis title
+	ylab(, noticks) ///	// remove y-axis ticks
+	plotregion(margin(t = 10)) // make space on top of plot for legend
+```
+<img src="sample-plots/box-v1.svg" width="650">
 
 ## Contact
 Contact Jennifer Andre (jandre@urban.org) with questions or to provide feedback.
