@@ -1860,7 +1860,7 @@ tickstyle sts_risktable   sts_risktable
 tickstyle fp_major        fp_major 
 
 
-** urban style - no ticks
+** urban style - tick options
 ticksetstyle                       major_horiz_default
 ticksetstyle major_horiz_default   major_horiz_default
 ticksetstyle major_vert_default    major_vert_default
