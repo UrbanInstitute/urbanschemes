@@ -1,16 +1,14 @@
 # urbanschemes
 
 ## Overview
-`urbanschemes` is a custom Stata scheme for creating Urban Institute-themed visualizations (see `help schemes` for more [details](https://www.stata.com/manuals/g-4schemesintro.pdf)). The scheme is built upon the popular `s2color` scheme, with further customizations to align with the [Urban Institute Data Visualization Style Guide](https://urbaninstitute.github.io/graphics-styleguide/).
+`urbanschemes` is a custom Stata scheme for creating Urban Institute-themed visualizations (see [scheme manual](https://www.stata.com/manuals/g-4schemesintro.pdf)). The scheme is built upon the popular `s2color` scheme, with further customizations to align with the [Urban Institute Data Visualization Style Guide](https://urbaninstitute.github.io/graphics-styleguide/).
 
-Currently, this scheme is optimized to produce report-ready static figures *without* titles, subtitles, citations, or notes. These must be included separately in your report.
-
-This scheme is currently under development. Current version: 0.2.0.
+**This scheme is currently under development and is subject to change (current version: 0.2.0). You can provide feedback, suggest ideas, or propose improvements via GitHub Issues or by email (Jennifer Andre - jandre@urban.org). There are many tools available that make Urban-themed data visualization simpler, `urbanschemes` is just one option for Stata users.**
 
 ## Background
 Stata offers a lot of flexibility for data visualizations. This flexibility is great for developing complex, reproducibile visualizations - but it often requires long and potentially confusing syntax. The goal of this scheme is to include most aesthetic syntax as default settings, so that the user can focus on the most important plotting decisions.
 
-This scheme is not intended to cover all of the vast range of graphing capabilities and options. Refer to Stata documentation to learn more about [graph commands](https://www.stata.com/manuals13/g-2graph.pdf).
+This scheme is not intended to cover all of the vast range of graphing capabilities and options. Refer to Stata documentation to learn more about [graph commands](https://www.stata.com/manuals13/g-2graph.pdf). Currently, this scheme is optimized to produce report-ready static figures *without* titles, subtitles, citations, or notes. These must be included separately in your report.
 
 Here are some helpful resources on schemes:
 * [Stata graphs: Define your own color schemes, by Asjad Naqvi on Medium](https://medium.com/the-stata-guide/stata-graphs-define-your-own-color-schemes-4320b16f7ef7)
