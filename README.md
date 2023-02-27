@@ -146,7 +146,7 @@ Note that there is some loss of quality in the embedded images below - refer to 
 ### Bar/Column Plot
 The following bar charts visualize population by US region using the `census` dataset included with a Stata installation.
 
-**Example 1**: This example displays population values (in millions) along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials.
+**Example 1**: This example displays population values (in millions) along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart and the grid lines pattern is dotted.
 ```
 sysuse census, clear
 collapse (sum) pop, by(region)
@@ -193,7 +193,7 @@ graph bar pop, over(region) /// // plot population by region
 ### Grouped Bar/Column Plot
 The following bar charts visualize January and July average temperature by US region using the `citytemp` dataset included with a Stata installation.
 
-**Example 1**: This example displays temperature values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area.
+**Example 1**: This example displays temperature values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart and the grid lines pattern is dotted. The legend is placed above the plot area.
 ```
 sysuse citytemp, clear
 
@@ -222,7 +222,7 @@ graph bar tempjan tempjuly, over(region) /// // plot jan and june temp by region
 ### Horizontal bar chart
 This bar chart visualizes average car price by manufacturer using the `auto` dataset included with a Stata installation.
 
-With a horizontal bar chart, the y-axis is "flipped" to the horizontal position but must still be referred to with y-axis options. This example displays average car prices along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials.
+With a horizontal bar chart, the y-axis is "flipped" to the horizontal position but must still be referred to with y-axis options. This example displays average car prices along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart and the grid lines pattern is dotted.
 ```
 sysuse auto, clear
 split make, p(" ") 
@@ -240,7 +240,7 @@ graph hbar (mean) price, ///
 ### Line Plot
 This line plot compares average US life expectancy over time for white males and Black males using the `uslifeexp` dataset included with a Stata installation. 
 
-This example displays age values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area.
+This example displays age values along the y-axis, although the y-axis line itself is removed. The y-axis title is placed along the top of the chart and the grid lines pattern is dotted. The legend is placed above the plot area.
 ```
 sysuse uslifeexp, clear
 
@@ -280,7 +280,7 @@ twoway ///
 ### Histogram
 This histogram explores the distribution of S&P 500 opening prices using the `sp500` dataset included with a Stata installation.
 
-The y-axis title is placed along the top of the chart and the y-axis line is removed. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. Only y-axis ticks are removed.
+The y-axis title is placed along the top of the chart and the y-axis line is removed. Only y-axis ticks are removed and the grid lines pattern is dotted.
 ```
 sysuse sp500, clear
 
@@ -295,7 +295,7 @@ histogram open, ///
 ### Kernel density plot
 We can make a comparative kernel density plot comparing the distributions of MPG for foreign and domestic cars using the `auto` dataset included with a Stata installation.
 
-We first store the kernel density options in a local for use in the twoway plot command. The y-axis title is placed along the top of the chart and the y-axis line is removed. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area. Only y-axis ticks are removed.
+We first store the kernel density options in a local for use in the twoway plot command. The y-axis title is placed along the top of the chart and the y-axis line is removed. The legend is placed above the plot area. Only y-axis ticks are removed and the grid lines pattern is dotted.
 ```
 sysuse auto, clear
 
@@ -316,7 +316,7 @@ graph two ///
 ### Box plot
 We can compare blood pressure by age group before and after a treatment by using the `bpwide` dataset included with a Stata installation.
 
-The y-axis title is placed along the top of the chart and the y-axis line is removed. Dotted grid lines comply with the Urban Institute Data Visualization Style Guide guidelines for print materials. The legend is placed above the plot area. Axis ticks are removed.
+The y-axis title is placed along the top of the chart and the y-axis line is removed. The legend is placed above the plot area. Axis ticks are removed and the grid lines pattern is dotted.
 ```
 sysuse bpwide, clear
 
