@@ -22,7 +22,7 @@ Here are some helpful resources on schemes:
 ### Install
 By default, these instructions will install the scheme files into your "PLUS" ado directory (see [ado details](https://www.stata.com/support/faqs/programming/personal-ado-directory/), see [net details](https://www.stata.com/manuals13/rnet.pdf)). Use command `sysdir` to confirm this location.
 ```
-net install urbanschemes, replace from("https://ui-research.github.io/urbanschemes/")
+net install urbanschemes, replace from("https://urbaninstitute.github.io/urbanschemes/")
 ```
 
 ### Fonts
