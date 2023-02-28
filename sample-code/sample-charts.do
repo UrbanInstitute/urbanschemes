@@ -171,7 +171,8 @@ graph export "density-v1.emf", replace
 graph export "density-v1.png", replace
 graph export "density-v1.tif", replace
 
-**# Box plot - v1 *https://www.stata.com/support/faqs/graphics/gph/graphdocs/box-plot-of-two-variables-by-categorical-variable/index.html
+**# Box plot - v1 
+*https://www.stata.com/support/faqs/graphics/gph/graphdocs/box-plot-of-two-variables-by-categorical-variable/index.html
 sysuse bpwide, clear
 
 graph box bp_before bp_after, over(agegrp) /// // box plot over age groups
